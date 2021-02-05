@@ -1,5 +1,5 @@
 ---
-title: "US States 2019 population"
+title: "US States population map"
 date: "February 5, 2021"
 output: html_document
 ---
