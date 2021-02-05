@@ -1,0 +1,30 @@
+---
+title: "US States 2019 population"
+date: "February 5, 2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+```{r}
+library(leaflet)
+
+popdata <- as.data.frame(state.x77)
+data2 <- data.frame(names = state.name, pop75 = popdata$Population, lat = state.center$y, lng = state.center$x)
+#myMap <- data %>% leaflet() %>% addTiles() %>% 
+    #addCircles(weight = 1, radius = sqrt(data$pop19)*50)
+
+myMap2 <- data2 %>% leaflet() %>% addTiles() %>% 
+    addCircles(weight = 1, radius = data2$pop75*25)
+myMap2
+```
+
+### A map of the 50 US states with circles proportional to each of the state's 1975 population.
+
+Note: Hawaii and Alaska dots not located at center of state but along Pacific coastline of
+continental US.
+
+Source: Population data from state.x77, state co-ordinate data from state.center.
